@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Terms of Service | Nietzschean AI</title>
+<meta name="description" content="Nietzschean AI Terms of Service — the rules and conditions governing use of our AI services and website.">
+<link rel="stylesheet" href="../css/custom.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #fbbf24;
+    --gold-dim: rgba(251,191,36,0.15);
+    --bg: #111827;
+    --surface: #1f2937;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Montserrat, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    top: 20vh; left: 50%;
+    transform: translateX(-50%);
+    width: 80vw; height: 40vh;
+    background: radial-gradient(ellipse, rgba(251,191,36,0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  header {
+    position: sticky; top: 0; z-index: 1001;
+    background: rgba(17,24,39,0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(251,191,36,0.15);
+    padding: 0 2rem;
+    height: 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  header a.logo { display: flex; align-items: center; text-decoration: none; }
+  header a.logo img { height: 3rem; width: auto; }
+  nav { display: flex; gap: 2rem; }
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+  nav a::after {
+    content: '';
+    position: absolute; bottom: -2px; left: 0;
+    width: 0; height: 2px;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: width 0.25s ease;
+  }
+  nav a:hover { color: var(--gold); }
+  nav a:hover::after { width: 100%; }
+
+  .hero {
+    position: relative; z-index: 1;
+    max-width: 56rem; margin: 0 auto;
+    padding: 5rem 2rem 2rem;
+    text-align: center;
+  }
+  .tag {
+    display: inline-block;
+    border: 1px solid var(--gold-dim);
+    background: rgba(251,191,36,0.08);
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    border-radius: 9999px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #fff 0%, var(--gold) 60%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+  }
+  .hero p { font-size: 0.9375rem; color: var(--muted); }
+
+  .content {
+    max-width: 56rem; margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+    position: relative; z-index: 1;
+  }
+  .section {
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-left: 3px solid var(--gold);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .section h2 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .section p, .section li {
+    font-size: 0.9375rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 0.75rem;
+  }
+  .section ul { padding-left: 1.5rem; }
+  .section li { margin-bottom: 0.5rem; }
+  .section a { color: var(--gold); text-decoration: none; }
+  .section a:hover { text-decoration: underline; }
+
+  footer {
+    border-top: 1px solid rgba(251,191,36,0.1);
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+    position: relative; z-index: 1;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="../index.html">
+    <img src="../images/NIETZSCHEAN_AI_7_nobg.png" alt="Nietzschean AI" onerror="this.style.display='none'">
+  </a>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../about/index.html">About</a>
+    <a href="../contact/index.html">Contact Us</a>
+    <a href="../pricing/index.html">Pricing</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="tag">Legal</div>
+  <h1>Terms of Service</h1>
+  <p>Last updated: April 16, 2025</p>
+</section>
+
+<div class="content">
+
+  <div class="section">
+    <h2>1. Agreement to Terms</h2>
+    <p>By accessing or using the website and services of Nietzschean AI ("Company," "we," "us," or "our"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, please do not use our services.</p>
+    <p>These Terms apply to all visitors, clients, and users of our website and AI services, including AI chatbots, automation agents, workflows, and web solutions.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Services</h2>
+    <p>Nietzschean AI provides custom AI-powered services including but not limited to:</p>
+    <ul>
+      <li>AI chatbot design and development</li>
+      <li>Intelligent automation agents and workflows</li>
+      <li>AI-integrated web solutions</li>
+      <li>AI strategy consulting and implementation</li>
+    </ul>
+    <p>The specific scope, deliverables, timeline, and pricing for each engagement are defined in a separate project agreement or statement of work ("SOW") agreed upon by both parties.</p>
+  </div>
+
+  <div class="section">
+    <h2>3. Client Responsibilities</h2>
+    <p>To enable us to deliver our services effectively, you agree to:</p>
+    <ul>
+      <li>Provide accurate, complete, and timely information, materials, and access required for the project</li>
+      <li>Designate a point of contact with authority to make decisions on your behalf</li>
+      <li>Review and provide feedback on deliverables within agreed timelines</li>
+      <li>Ensure that any data or content you provide does not infringe on third-party rights</li>
+      <li>Comply with all applicable laws in connection with your use of our services</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>4. Payment Terms</h2>
+    <p>Payment terms are specified in your project agreement or invoice. General terms include:</p>
+    <ul>
+      <li>Invoices are due within the timeframe stated on the invoice (typically net 7 or net 14 days)</li>
+      <li>Late payments may incur a late fee of 1.5% per month on the outstanding balance</li>
+      <li>We reserve the right to pause or suspend work on any project with outstanding unpaid invoices</li>
+      <li>All prices are in USD unless otherwise stated</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>5. Intellectual Property</h2>
+    <p><strong>Your Content:</strong> You retain ownership of all content, data, and materials you provide to us.</p>
+    <p><strong>Deliverables:</strong> Upon receipt of full payment, you receive ownership of the final custom deliverables created specifically for your project, as defined in the SOW.</p>
+    <p><strong>Our IP:</strong> We retain ownership of all pre-existing tools, frameworks, methodologies, templates, and general AI components used in delivering services. These are licensed to you for use within the delivered solution but are not transferred.</p>
+    <p><strong>Portfolio Rights:</strong> Unless you request otherwise in writing, we reserve the right to reference your project in our portfolio and marketing materials.</p>
+  </div>
+
+  <div class="section">
+    <h2>6. Confidentiality</h2>
+    <p>Both parties agree to keep confidential any proprietary or sensitive information shared during the engagement. This includes business strategies, technical specifications, client data, and pricing. Confidentiality obligations survive the termination of any project agreement.</p>
+    <p>We will not disclose your confidential information to third parties without your written consent, except as required by law.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. Acceptable Use</h2>
+    <p>You agree not to use our services or website to:</p>
+    <ul>
+      <li>Violate any applicable laws or regulations</li>
+      <li>Build AI systems intended to deceive, defraud, or harm individuals</li>
+      <li>Generate, distribute, or promote illegal, harmful, or offensive content</li>
+      <li>Infringe on the intellectual property rights of others</li>
+      <li>Attempt to gain unauthorized access to our systems or data</li>
+      <li>Engage in any activity that disrupts or interferes with our services</li>
+    </ul>
+    <p>We reserve the right to terminate services immediately for violations of this section.</p>
+  </div>
+
+  <div class="section">
+    <h2>8. AI-Specific Disclaimers</h2>
+    <p>You acknowledge and agree that:</p>
+    <ul>
+      <li>AI systems can produce unexpected, incorrect, or biased outputs. We are not liable for decisions made based solely on AI-generated content.</li>
+      <li>AI models and capabilities evolve rapidly. We do not guarantee that any AI solution will remain optimal or unchanged over time.</li>
+      <li>You are responsible for reviewing AI outputs before acting on them, especially in high-stakes contexts (legal, medical, financial, etc.).</li>
+      <li>Third-party AI APIs (e.g., OpenAI, Anthropic) used in your solution are subject to their own terms of service and pricing, which may change independently.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>9. Limitation of Liability</h2>
+    <p>To the maximum extent permitted by law, Nietzschean AI shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of profits, data, or business opportunities, arising from your use of our services.</p>
+    <p>Our total liability for any claim arising from our services shall not exceed the total amount paid by you to us in the three (3) months preceding the claim.</p>
+  </div>
+
+  <div class="section">
+    <h2>10. Warranties and Disclaimers</h2>
+    <p>We warrant that our services will be performed in a professional and workmanlike manner consistent with industry standards. Beyond this, our services are provided "as is" without warranties of any kind, express or implied, including warranties of merchantability, fitness for a particular purpose, or non-infringement.</p>
+    <p>We do not warrant that our services will be error-free, uninterrupted, or that results will meet your specific expectations beyond what is defined in the agreed scope.</p>
+  </div>
+
+  <div class="section">
+    <h2>11. Termination</h2>
+    <p>Either party may terminate a project engagement with written notice as specified in the project agreement. Upon termination:</p>
+    <ul>
+      <li>You will be invoiced for all work completed up to the termination date</li>
+      <li>We will deliver all completed work product to you upon receipt of final payment</li>
+      <li>Confidentiality obligations and IP provisions survive termination</li>
+    </ul>
+    <p>We reserve the right to terminate services immediately and without notice for violations of these Terms or non-payment.</p>
+  </div>
+
+  <div class="section">
+    <h2>12. Governing Law</h2>
+    <p>These Terms shall be governed by and construed in accordance with applicable laws. Any disputes arising from these Terms or our services shall first be attempted to be resolved through good-faith negotiation. If unresolved, disputes shall be submitted to binding arbitration or the appropriate courts of jurisdiction.</p>
+  </div>
+
+  <div class="section">
+    <h2>13. Changes to These Terms</h2>
+    <p>We reserve the right to update these Terms at any time. We will notify you of material changes by updating the "Last updated" date. Your continued use of our services after changes are posted constitutes acceptance of the revised Terms.</p>
+  </div>
+
+  <div class="section">
+    <h2>14. Contact Us</h2>
+    <p>Questions about these Terms? Contact us:</p>
+    <ul>
+      <li>Email: <a href="mailto:support@nietzscheanai.com">support@nietzscheanai.com</a></li>
+      <li>Website: <a href="../contact/index.html">nietzscheanai.com/contact</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  © 2024 <a href="../index.html">Nietzschean AI</a>. All rights reserved. &nbsp;|&nbsp;
+  <a href="../privacy-policy/index.html">Privacy Policy</a> &nbsp;|&nbsp;
+  <a href="../refund-policy/index.html">Refund Policy</a> &nbsp;|&nbsp;
+  <a href="index.html">Terms of Service</a>
+</footer>
+
+</body>
+</html>

@@ -9,7 +9,6 @@ header {
   background: rgba(17, 24, 39, 0.85) !important;
   border-bottom: 1px solid rgba(251, 191, 36, 0.15) !important;
   transition: all 0.3s ease;
-  z-index: 1001 !important; /* above robot GIFs (z-index: 1000) */
 }
 
 /* Nav link hover effect */
@@ -87,13 +86,6 @@ header ul li a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-.blottie-container::after {
-  content: '';
-  display: block;
-  width: 00px;
-  height: 00px;
-  background: url('../images/ai-image-robot-unscreen.gif') center/contain no-repeat;
 }
 /* Second blottie (sphere section) — use the other gif */
 .blottie-container:nth-of-type(2)::after,

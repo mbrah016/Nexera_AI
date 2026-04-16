@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refund Policy | Nietzschean AI</title>
+<meta name="description" content="Nietzschean AI Refund Policy — understand our refund and cancellation terms for AI services.">
+<link rel="stylesheet" href="../css/custom.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #fbbf24;
+    --gold-dim: rgba(251,191,36,0.15);
+    --bg: #111827;
+    --surface: #1f2937;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Montserrat, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed;
+    top: 20vh; left: 50%;
+    transform: translateX(-50%);
+    width: 80vw; height: 40vh;
+    background: radial-gradient(ellipse, rgba(251,191,36,0.08) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
+  header {
+    position: sticky; top: 0; z-index: 1001;
+    background: rgba(17,24,39,0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(251,191,36,0.15);
+    padding: 0 2rem;
+    height: 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  header a.logo { display: flex; align-items: center; text-decoration: none; }
+  header a.logo img { height: 3rem; width: auto; }
+  nav { display: flex; gap: 2rem; }
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+  nav a::after {
+    content: '';
+    position: absolute; bottom: -2px; left: 0;
+    width: 0; height: 2px;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: width 0.25s ease;
+  }
+  nav a:hover { color: var(--gold); }
+  nav a:hover::after { width: 100%; }
+
+  .hero {
+    position: relative; z-index: 1;
+    max-width: 56rem; margin: 0 auto;
+    padding: 5rem 2rem 2rem;
+    text-align: center;
+  }
+  .tag {
+    display: inline-block;
+    border: 1px solid var(--gold-dim);
+    background: rgba(251,191,36,0.08);
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    border-radius: 9999px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 800;
+    background: linear-gradient(135deg, #fff 0%, var(--gold) 60%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 1rem;
+  }
+  .hero p { font-size: 0.9375rem; color: var(--muted); }
+
+  .content {
+    max-width: 56rem; margin: 0 auto;
+    padding: 2rem 2rem 6rem;
+    position: relative; z-index: 1;
+  }
+  .section {
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-left: 3px solid var(--gold);
+    border-radius: 1rem;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+  .section h2 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+  .section p, .section li {
+    font-size: 0.9375rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 0.75rem;
+  }
+  .section ul { padding-left: 1.5rem; }
+  .section li { margin-bottom: 0.5rem; }
+  .section a { color: var(--gold); text-decoration: none; }
+  .section a:hover { text-decoration: underline; }
+  .highlight {
+    background: rgba(251,191,36,0.08);
+    border: 1px solid rgba(251,191,36,0.2);
+    border-radius: 0.75rem;
+    padding: 1.25rem 1.5rem;
+    margin-top: 1rem;
+    color: var(--text);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+  }
+
+  footer {
+    border-top: 1px solid rgba(251,191,36,0.1);
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+    position: relative; z-index: 1;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="../index.html">
+    <img src="../images/NIETZSCHEAN_AI_7_nobg.png" alt="Nietzschean AI" onerror="this.style.display='none'">
+  </a>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../about/index.html">About</a>
+    <a href="../contact/index.html">Contact Us</a>
+    <a href="../pricing/index.html">Pricing</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="tag">Legal</div>
+  <h1>Refund Policy</h1>
+  <p>Last updated: April 16, 2025</p>
+</section>
+
+<div class="content">
+
+  <div class="section">
+    <h2>1. Overview</h2>
+    <p>At Nietzschean AI, we are committed to delivering high-quality AI solutions — including chatbots, automation agents, workflows, and web solutions. Because our services involve significant custom development, research, and intellectual work, our refund policy reflects the nature of these deliverables.</p>
+    <p>Please read this policy carefully before purchasing any of our services.</p>
+  </div>
+
+  <div class="section">
+    <h2>2. Custom AI Development Services</h2>
+    <p>All custom AI development projects (chatbots, agents, automation workflows, and web solutions) are bespoke engagements. Once work has commenced:</p>
+    <ul>
+      <li>Payments made for work already completed are <strong>non-refundable</strong>.</li>
+      <li>If a project is cancelled before completion, you will be billed only for the work completed up to the cancellation date.</li>
+      <li>Any unused portion of a prepaid project may be credited toward future services at our discretion.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>3. Subscription & Retainer Plans</h2>
+    <p>For monthly or recurring service plans:</p>
+    <ul>
+      <li>You may cancel your subscription at any time. Cancellation takes effect at the end of the current billing period.</li>
+      <li>No refunds are issued for partial months or unused days within a billing period.</li>
+      <li>Annual plans cancelled within 14 days of the initial purchase may be eligible for a prorated refund, minus any work already delivered.</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>4. Eligibility for Refunds</h2>
+    <p>A refund may be considered in the following circumstances:</p>
+    <ul>
+      <li>We fail to deliver the agreed-upon service within the agreed timeline due to our own fault.</li>
+      <li>The delivered work materially fails to meet the written specifications agreed upon in the project scope.</li>
+      <li>A duplicate payment was made in error.</li>
+    </ul>
+    <div class="highlight">
+      ⚠️ Refund requests must be submitted within <strong>7 days</strong> of the delivery date or billing date. Requests submitted after this window will not be considered.
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>5. Non-Refundable Items</h2>
+    <p>The following are not eligible for refunds under any circumstances:</p>
+    <ul>
+      <li>Completed and delivered AI solutions, chatbots, or automation workflows</li>
+      <li>Consulting sessions, strategy calls, or discovery sessions already conducted</li>
+      <li>Third-party costs (API fees, hosting, software licenses) incurred on your behalf</li>
+      <li>Services where the client has failed to provide required materials, access, or feedback within agreed timelines</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>6. Dispute Resolution</h2>
+    <p>If you are unsatisfied with a deliverable, we strongly encourage you to contact us first. We are committed to resolving issues through revision cycles and good-faith collaboration before any refund is considered.</p>
+    <p>Most concerns can be resolved by clearly communicating the issue and allowing us the opportunity to address it within the agreed scope of work.</p>
+  </div>
+
+  <div class="section">
+    <h2>7. How to Request a Refund</h2>
+    <p>To submit a refund request, please contact us with the following information:</p>
+    <ul>
+      <li>Your full name and company name</li>
+      <li>Invoice or order number</li>
+      <li>Date of purchase</li>
+      <li>Reason for the refund request</li>
+    </ul>
+    <p>Contact us at: <a href="mailto:support@nietzscheanai.com">support@nietzscheanai.com</a></p>
+    <p>We will review your request and respond within <strong>5 business days</strong>.</p>
+  </div>
+
+  <div class="section">
+    <h2>8. Changes to This Policy</h2>
+    <p>We reserve the right to update this Refund Policy at any time. Changes will be posted on this page with an updated date. Continued use of our services after changes are posted constitutes acceptance of the revised policy.</p>
+  </div>
+
+  <div class="section">
+    <h2>9. Contact Us</h2>
+    <p>Questions about our refund policy? Reach out:</p>
+    <ul>
+      <li>Email: <a href="mailto:support@nietzscheanai.com">support@nietzscheanai.com</a></li>
+      <li>Website: <a href="../contact/index.html">nietzscheanai.com/contact</a></li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  © 2024 <a href="../index.html">Nietzschean AI</a>. All rights reserved. &nbsp;|&nbsp;
+  <a href="../privacy-policy/index.html">Privacy Policy</a> &nbsp;|&nbsp;
+  <a href="index.html">Refund Policy</a> &nbsp;|&nbsp;
+  <a href="../terms-of-services/index.html">Terms of Service</a>
+</footer>
+
+</body>
+</html>

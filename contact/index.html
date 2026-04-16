@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Nietzschean AI | Let's Build Something Together</title>
+<meta name="description" content="Reach out to Nietzschean AI. AI chatbots, agents, workflows, web development and digital marketing — let's talk.">
+<link rel="stylesheet" href="../css/custom.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --gold: #fbbf24;
+    --gold-dim: rgba(251,191,36,0.15);
+    --bg: #111827;
+    --surface: #1f2937;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Montserrat, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    top: 15vh; left: 50%;
+    transform: translateX(-50%);
+    width: 80vw; height: 50vh;
+    background: radial-gradient(ellipse, rgba(251,191,36,0.1) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    animation: ambientPulse 6s ease-in-out infinite;
+  }
+  @keyframes ambientPulse {
+    0%,100% { opacity: 0.4; } 50% { opacity: 0.8; }
+  }
+
+  /* ── Header ── */
+  header {
+    position: sticky; top: 0; z-index: 1001;
+    background: rgba(17,24,39,0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(251,191,36,0.15);
+    padding: 0 2rem;
+    height: 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  header a.logo img { height: 3rem; width: auto; }
+  nav { display: flex; gap: 2rem; }
+  nav a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 2px;
+    transition: color 0.2s;
+  }
+  nav a::after {
+    content: '';
+    position: absolute; bottom: -2px; left: 0;
+    width: 0; height: 2px;
+    background: var(--gold);
+    border-radius: 2px;
+    transition: width 0.25s ease;
+  }
+  nav a:hover, nav a.active { color: var(--gold); }
+  nav a:hover::after, nav a.active::after { width: 100%; }
+
+  /* ── Hero ── */
+  .hero {
+    position: relative; z-index: 1;
+    max-width: 56rem; margin: 0 auto;
+    padding: 5rem 2rem 3rem;
+    text-align: center;
+  }
+  .tag {
+    display: inline-block;
+    border: 1px solid var(--gold-dim);
+    background: rgba(251,191,36,0.08);
+    color: var(--gold);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0.35rem 1rem;
+    border-radius: 9999px;
+    margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3.25rem);
+    font-weight: 800;
+    line-height: 1.15;
+    background: linear-gradient(135deg, #fff 0%, var(--gold) 60%, #f59e0b 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: shimmer 4s ease-in-out infinite;
+    margin-bottom: 1rem;
+  }
+  @keyframes shimmer {
+    0%   { background-position: 0% center; }
+    50%  { background-position: 100% center; }
+    100% { background-position: 0% center; }
+  }
+  .hero p { font-size: 1.0625rem; color: var(--muted); line-height: 1.75; }
+
+  /* ── Main layout ── */
+  .main {
+    max-width: 72rem; margin: 0 auto;
+    padding: 3rem 2rem 5rem;
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    position: relative; z-index: 1;
+    align-items: start;
+  }
+  @media (max-width: 768px) { .main { grid-template-columns: 1fr; } }
+
+  /* ── Contact info panel ── */
+  .info-panel h2 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  .info-panel > p {
+    color: var(--muted);
+    font-size: 0.9375rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  .contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 0.875rem;
+    margin-bottom: 1rem;
+    transition: border-color 0.25s ease, transform 0.25s ease;
+    text-decoration: none;
+    color: inherit;
+  }
+  .contact-item:hover {
+    border-color: rgba(251,191,36,0.35);
+    transform: translateX(4px);
+  }
+  .contact-icon {
+    width: 2.5rem; height: 2.5rem; flex-shrink: 0;
+    background: rgba(251,191,36,0.1);
+    border: 1px solid rgba(251,191,36,0.2);
+    border-radius: 0.625rem;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.1rem;
+  }
+  .contact-item-body { flex: 1; }
+  .contact-item-body strong {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.25rem;
+  }
+  .contact-item-body span {
+    font-size: 0.9375rem;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  /* Steps */
+  .steps { margin-top: 2rem; }
+  .steps h3 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 1.25rem;
+  }
+  .step {
+    display: flex; gap: 1rem; align-items: flex-start;
+    margin-bottom: 1.25rem;
+    position: relative;
+  }
+  .step:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    left: 1.125rem; top: 2.5rem;
+    width: 1px; height: calc(100% + 0.25rem);
+    background: linear-gradient(to bottom, rgba(251,191,36,0.4), transparent);
+  }
+  .step-num {
+    width: 2.25rem; height: 2.25rem; flex-shrink: 0;
+    background: rgba(251,191,36,0.1);
+    border: 1px solid rgba(251,191,36,0.3);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--gold);
+  }
+  .step-body h4 { font-size: 0.9375rem; font-weight: 600; color: #fff; margin-bottom: 0.2rem; }
+  .step-body p { font-size: 0.875rem; color: var(--muted); line-height: 1.6; }
+
+  /* ── Form panel ── */
+  .form-panel {
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 1.25rem;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .form-panel::before {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(251,191,36,0.08), transparent 70%);
+    pointer-events: none;
+  }
+  .form-panel h2 {
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.5rem;
+  }
+  .form-panel > p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .form-group { margin-bottom: 1.25rem; }
+  label {
+    display: block;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--muted);
+    margin-bottom: 0.4rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  input, textarea, select {
+    width: 100%;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: var(--text);
+    font-family: Montserrat, sans-serif;
+    font-size: 0.9375rem;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  input:focus, textarea:focus, select:focus {
+    border-color: rgba(251,191,36,0.5);
+    box-shadow: 0 0 0 3px rgba(251,191,36,0.1);
+  }
+  textarea { resize: vertical; min-height: 120px; }
+  select option { background: var(--surface); }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+
+  .submit-btn {
+    width: 100%;
+    background: var(--gold);
+    color: #111827;
+    font-weight: 700;
+    font-size: 1rem;
+    padding: 0.875rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    font-family: Montserrat, sans-serif;
+  }
+  .submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(251,191,36,0.35);
+  }
+
+  .success-msg {
+    display: none;
+    background: rgba(34,197,94,0.1);
+    border: 1px solid rgba(34,197,94,0.3);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    color: #4ade80;
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.9375rem;
+  }
+
+  /* ── Footer ── */
+  footer {
+    border-top: 1px solid rgba(251,191,36,0.1);
+    text-align: center;
+    padding: 1.5rem;
+    color: var(--muted);
+    font-size: 0.8rem;
+    position: relative; z-index: 1;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="../index.html">
+    <img src="../images/NIETZSCHEAN_AI_7_nobg.png" alt="Nietzschean AI" onerror="this.style.display='none'">
+  </a>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../about/index.html">About</a>
+    <a href="index.html" class="active">Contact Us</a>
+    <a href="../pricing/index.html">Pricing</a>
+  </nav>
+</header>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="tag">Get In Touch</div>
+  <h1>Let's Build Something<br>Extraordinary Together</h1>
+  <p>You have a vision. We have the AI expertise to make it real. Whether you're starting from scratch or scaling what you have — the conversation starts here.</p>
+</section>
+
+<!-- Main content -->
+<div class="main">
+
+  <!-- Left: contact info + steps -->
+  <div class="info-panel">
+    <h2>Reach Us Directly</h2>
+    <p>No bots, no runaround. Real people who understand AI and care about your business.</p>
+
+    <a class="contact-item" href="tel:+16479042793">
+      <div class="contact-icon">📞</div>
+      <div class="contact-item-body">
+        <strong>Phone</strong>
+        <span>+1 (647) 904-2793</span>
+      </div>
+    </a>
+
+    <a class="contact-item" href="mailto:manish.brahmbhatt007@gmail.com">
+      <div class="contact-icon">✉️</div>
+      <div class="contact-item-body">
+        <strong>Email</strong>
+        <span>manish.brahmbhatt007@gmail.com</span>
+      </div>
+    </a>
+
+    <div class="contact-item">
+      <div class="contact-icon">📍</div>
+      <div class="contact-item-body">
+        <strong>Address</strong>
+        <span>383 Kinghorn Crescent<br>Kanata, Ontario, K2K 3R6</span>
+      </div>
+    </div>
+
+    <div class="steps">
+      <h3>What Happens Next</h3>
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <h4>Connect With Us</h4>
+          <p>Fill out the form or call us directly. Tell us what you're working on.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <h4>Discuss Your Needs</h4>
+          <p>We'll schedule a call to understand your goals, challenges, and timeline.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <h4>Get a Custom Plan</h4>
+          <p>We design a tailored AI strategy built specifically around your business.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <h4>We Build & Support</h4>
+          <p>We implement your solution and stay with you every step of the way.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right: form -->
+  <div class="form-panel">
+    <h2>Send Us a Message</h2>
+    <p>Ready to Transform Your Business with AI? Fill out the form and we'll get back to you within 24 hours.</p>
+
+    <form id="contactForm" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" placeholder="John" required>
+        </div>
+        <div class="form-group">
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" placeholder="Doe" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" placeholder="john@company.com" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" placeholder="+1 (555) 000-0000">
+      </div>
+      <div class="form-group">
+        <label for="service">What Are You Interested In?</label>
+        <select id="service">
+          <option value="">Select a service...</option>
+          <option>AI Chatbots</option>
+          <option>AI Agents</option>
+          <option>AI Workflows</option>
+          <option>AI Apps / MVP</option>
+          <option>Website Development</option>
+          <option>Digital Marketing / SEO</option>
+          <option>App Development</option>
+          <option>Not sure yet — let's talk</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="message">Tell Us About Your Project</label>
+        <textarea id="message" placeholder="Describe your business challenge or what you'd like to build..." required></textarea>
+      </div>
+      <button type="submit" class="submit-btn">Send Message →</button>
+      <div class="success-msg" id="successMsg">
+        ✅ Message sent! We'll be in touch within 24 hours.
+      </div>
+    </form>
+  </div>
+
+</div>
+
+<footer>
+  © 2024 <a href="../index.html">Nietzschean AI</a>. All rights reserved.
+</footer>
+
+<script>
+function handleSubmit(e) {
+  e.preventDefault();
+  document.getElementById('successMsg').style.display = 'block';
+  document.getElementById('contactForm').reset();
+  setTimeout(() => {
+    document.getElementById('successMsg').style.display = 'none';
+  }, 5000);
+}
+</script>
+
+</body>
+</html>

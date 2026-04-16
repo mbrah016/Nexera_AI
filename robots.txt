@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://manishbrahmbhatt.github.io/nietzschean-ai/sitemap.xml

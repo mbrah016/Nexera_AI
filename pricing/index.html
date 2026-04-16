@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pricing — Nietzschean AI</title>
+<meta name="description" content="Transparent, flexible pricing for AI chatbots, agents, workflows, web development, SEO and digital marketing. Built for businesses ready to grow.">
+<link rel="stylesheet" href="../css/custom.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --gold: #fbbf24;
+    --gold-dim: rgba(251,191,36,0.15);
+    --bg: #111827;
+    --surface: #1f2937;
+    --surface2: #111827;
+    --text: #e5e7eb;
+    --muted: #9ca3af;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Montserrat, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed; top: 15vh; left: 50%;
+    transform: translateX(-50%);
+    width: 80vw; height: 50vh;
+    background: radial-gradient(ellipse, rgba(251,191,36,0.1) 0%, transparent 70%);
+    pointer-events: none; z-index: 0;
+    animation: ambientPulse 6s ease-in-out infinite;
+  }
+  @keyframes ambientPulse { 0%,100%{opacity:.4} 50%{opacity:.8} }
+
+  /* ── Header ── */
+  header {
+    position: sticky; top: 0; z-index: 1001;
+    background: rgba(17,24,39,0.9);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(251,191,36,0.15);
+    padding: 0 2rem; height: 4rem;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  header a.logo img { height: 3rem; width: auto; }
+  nav { display: flex; gap: 2rem; }
+  nav a {
+    color: var(--muted); text-decoration: none;
+    font-size: .875rem; font-weight: 600;
+    position: relative; padding-bottom: 2px;
+    transition: color .2s;
+  }
+  nav a::after {
+    content: ''; position: absolute; bottom: -2px; left: 0;
+    width: 0; height: 2px; background: var(--gold);
+    border-radius: 2px; transition: width .25s ease;
+  }
+  nav a:hover, nav a.active { color: var(--gold); }
+  nav a:hover::after, nav a.active::after { width: 100%; }
+
+  /* ── Hero ── */
+  .hero {
+    position: relative; z-index: 1;
+    max-width: 52rem; margin: 0 auto;
+    padding: 5rem 2rem 2.5rem; text-align: center;
+  }
+  .tag {
+    display: inline-block;
+    border: 1px solid var(--gold-dim);
+    background: rgba(251,191,36,.08);
+    color: var(--gold); font-size: .75rem; font-weight: 600;
+    letter-spacing: .1em; text-transform: uppercase;
+    padding: .35rem 1rem; border-radius: 9999px; margin-bottom: 1.5rem;
+  }
+  .hero h1 {
+    font-size: clamp(2rem,5vw,3.25rem); font-weight: 800; line-height: 1.15;
+    background: linear-gradient(135deg,#fff 0%,var(--gold) 60%,#f59e0b 100%);
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; background-size: 200% auto;
+    animation: shimmer 4s ease-in-out infinite; margin-bottom: 1rem;
+  }
+  @keyframes shimmer { 0%{background-position:0% center} 50%{background-position:100% center} 100%{background-position:0% center} }
+  .hero p { font-size: 1.0625rem; color: var(--muted); line-height: 1.75; }
+
+  /* ── Toggle ── */
+  .toggle-wrap {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1rem; margin: 2.5rem auto 0; position: relative; z-index: 1;
+  }
+  .toggle-label { font-size: .9rem; font-weight: 600; color: var(--muted); }
+  .toggle-label.active { color: var(--gold); }
+  .toggle {
+    width: 3rem; height: 1.5rem;
+    background: rgba(251,191,36,.2);
+    border: 1px solid rgba(251,191,36,.3);
+    border-radius: 9999px; cursor: pointer;
+    position: relative; transition: background .2s;
+  }
+  .toggle::after {
+    content: ''; position: absolute;
+    top: 3px; left: 3px;
+    width: 1rem; height: 1rem;
+    background: var(--gold); border-radius: 50%;
+    transition: transform .2s ease;
+  }
+  .toggle.yearly::after { transform: translateX(1.5rem); }
+  .save-badge {
+    background: rgba(34,197,94,.15); border: 1px solid rgba(34,197,94,.3);
+    color: #4ade80; font-size: .7rem; font-weight: 700;
+    padding: .2rem .6rem; border-radius: 9999px;
+  }
+
+  /* ── Service sections ── */
+  .section {
+    max-width: 76rem; margin: 0 auto;
+    padding: 3rem 2rem 0; position: relative; z-index: 1;
+  }
+  .section-title {
+    font-size: 1.125rem; font-weight: 700;
+    color: var(--gold); text-transform: uppercase;
+    letter-spacing: .08em; margin-bottom: 1.5rem;
+    display: flex; align-items: center; gap: .75rem;
+  }
+  .section-title::after {
+    content: ''; flex: 1; height: 1px;
+    background: linear-gradient(to right, rgba(251,191,36,.3), transparent);
+  }
+
+  /* ── Cards grid ── */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem; margin-bottom: 3rem;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 1rem; padding: 1.75rem;
+    position: relative; overflow: hidden;
+    transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    display: flex; flex-direction: column;
+  }
+  .card.featured {
+    border-color: rgba(251,191,36,.4);
+    background: linear-gradient(135deg, rgba(251,191,36,.06) 0%, var(--surface) 60%);
+  }
+  .card.featured::before {
+    content: 'MOST POPULAR';
+    position: absolute; top: 1rem; right: 1rem;
+    background: var(--gold); color: #111827;
+    font-size: .65rem; font-weight: 800;
+    letter-spacing: .08em; padding: .2rem .6rem;
+    border-radius: 9999px;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(251,191,36,.35);
+    box-shadow: 0 20px 40px rgba(0,0,0,.4), 0 0 0 1px rgba(251,191,36,.12);
+  }
+  .card-name {
+    font-size: .8125rem; font-weight: 700;
+    color: var(--muted); text-transform: uppercase;
+    letter-spacing: .08em; margin-bottom: .5rem;
+  }
+  .card-price {
+    font-size: 2.25rem; font-weight: 800; color: #fff;
+    line-height: 1; margin-bottom: .25rem;
+  }
+  .card-price span { font-size: 1rem; font-weight: 500; color: var(--muted); }
+  .card-desc {
+    font-size: .875rem; color: var(--muted);
+    line-height: 1.6; margin: .75rem 0 1.25rem;
+    flex: 1;
+  }
+  .card-features { list-style: none; margin-bottom: 1.5rem; }
+  .card-features li {
+    font-size: .875rem; color: var(--text);
+    padding: .35rem 0;
+    border-bottom: 1px solid rgba(255,255,255,.04);
+    display: flex; align-items: flex-start; gap: .5rem;
+  }
+  .card-features li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+  .card-btn {
+    display: block; text-align: center;
+    background: rgba(251,191,36,.1);
+    border: 1px solid rgba(251,191,36,.3);
+    color: var(--gold); font-weight: 700; font-size: .875rem;
+    padding: .7rem; border-radius: .5rem;
+    text-decoration: none;
+    transition: background .2s ease, transform .2s ease;
+    margin-top: auto;
+  }
+  .card.featured .card-btn {
+    background: var(--gold); color: #111827; border-color: var(--gold);
+  }
+  .card-btn:hover { transform: translateY(-1px); background: var(--gold); color: #111827; }
+
+  /* ── Note ── */
+  .note {
+    max-width: 76rem; margin: 0 auto;
+    padding: 0 2rem 2rem; position: relative; z-index: 1;
+  }
+  .note-inner {
+    background: rgba(251,191,36,.05);
+    border: 1px solid rgba(251,191,36,.15);
+    border-radius: .75rem; padding: 1.25rem 1.5rem;
+    font-size: .875rem; color: var(--muted); line-height: 1.7;
+  }
+  .note-inner strong { color: var(--gold); }
+
+  /* ── FAQ ── */
+  .faq-section {
+    max-width: 52rem; margin: 0 auto;
+    padding: 1rem 2rem 4rem; position: relative; z-index: 1;
+  }
+  .faq-section h2 {
+    font-size: 1.5rem; font-weight: 800; color: #fff;
+    text-align: center; margin-bottom: 2rem;
+  }
+  .faq-item {
+    border-bottom: 1px solid rgba(255,255,255,.06);
+    padding: 1.1rem 0;
+  }
+  .faq-q {
+    font-size: .9375rem; font-weight: 600; color: #fff;
+    cursor: pointer; display: flex; justify-content: space-between;
+    align-items: center; gap: 1rem;
+  }
+  .faq-q::after { content: '+'; color: var(--gold); font-size: 1.25rem; flex-shrink: 0; }
+  .faq-item.open .faq-q::after { content: '−'; }
+  .faq-a {
+    font-size: .875rem; color: var(--muted); line-height: 1.7;
+    max-height: 0; overflow: hidden; transition: max-height .3s ease, padding .3s ease;
+  }
+  .faq-item.open .faq-a { max-height: 200px; padding-top: .75rem; }
+
+  /* ── CTA ── */
+  .cta-bar {
+    max-width: 72rem; margin: 0 auto;
+    padding: 0 2rem 5rem; position: relative; z-index: 1;
+  }
+  .cta-inner {
+    background: linear-gradient(135deg,rgba(251,191,36,.08) 0%,rgba(31,38,81,.6) 100%);
+    border: 1px solid rgba(251,191,36,.2);
+    border-radius: 1.5rem; padding: 3rem 2rem; text-align: center;
+  }
+  .cta-inner h2 { font-size: 1.75rem; font-weight: 800; color: #fff; margin-bottom: .75rem; }
+  .cta-inner p { color: var(--muted); margin-bottom: 2rem; }
+  .btn {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: var(--gold); color: #111827;
+    font-weight: 700; font-size: .9375rem;
+    padding: .75rem 2rem; border-radius: .5rem;
+    text-decoration: none; transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(251,191,36,.35); }
+
+  footer {
+    border-top: 1px solid rgba(251,191,36,.1);
+    text-align: center; padding: 1.5rem;
+    color: var(--muted); font-size: .8rem; position: relative; z-index: 1;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<header>
+  <a class="logo" href="../index.html">
+    <img src="../images/NIETZSCHEAN_AI_7_nobg.png" alt="Nietzschean AI" onerror="this.style.display='none'">
+  </a>
+  <nav>
+    <a href="../index.html">Home</a>
+    <a href="../about/index.html">About</a>
+    <a href="../contact/index.html">Contact Us</a>
+    <a href="index.html" class="active">Pricing</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="tag">Transparent Pricing</div>
+  <h1>Simple Prices.<br>Real Results.</h1>
+  <p>No hidden fees, no surprise invoices. Every price below reflects what it actually takes to build something that works — and what's fair for a business just getting started with AI.</p>
+</section>
+
+<div class="toggle-wrap">
+  <span class="toggle-label active" id="lbl-monthly">One-Time</span>
+  <div class="toggle" id="billingToggle" onclick="toggleBilling()"></div>
+  <span class="toggle-label" id="lbl-yearly">Monthly Retainer</span>
+  <span class="save-badge">Save 15%</span>
+</div>
+
+<!-- AI Chatbots -->
+<div class="section">
+  <div class="section-title">🤖 AI Chatbots</div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-name">Starter Bot</div>
+      <div class="card-price" data-monthly="$799" data-retainer="$149/mo">$799</div>
+      <div class="card-desc">A smart FAQ chatbot for your website. Answers common questions 24/7 so you don't have to.</div>
+      <ul class="card-features">
+        <li>Up to 50 Q&A pairs</li>
+        <li>Website embed (any platform)</li>
+        <li>Basic branding & tone</li>
+        <li>1 revision round</li>
+        <li>7-day delivery</li>
+      </ul>
+      <a class="card-btn" href="../contact/index.html">Get Started</a>
+    </div>
+    <div class="card featured">
+      <div class="card-name">Smart Assistant</div>
+      <div class="card-price" data-monthly="$1,999" data-retainer="$349/mo">$1,999</div>
+      <div class="card-desc">A conversational AI that understands context, handles multi-turn chats, and connects to your data.</div>
+      <ul class="card-features">
+        <li>Custom knowledge base (your docs/FAQs)</li>
+        <li>Multi-turn conversation flow</li>
+        <li>Lead capture integration</li>
+        <li>CRM / email tool connection</li>
+        <li>2 revision rounds</li>
+        <li>14-day delivery</li>
+      </ul>
+      <a class="card-btn" href="../contact/index.html">Get Started</a>
+    </div>
+    <div class="card">
+      <div class="card-name">Full AI Agent</div>
+      <div class="card-price" data-monthly="$3,999+" data-retainer="$699/mo">$3,999+</div>
+      <div class="card-desc">An autonomous agent that takes actions — books appointments, queries databases, handles complex workflows.</div>
+      <ul class="card-features">
+        <li>Multi-step reasoning & actions</li>
+        <li>API / database integrations</li>
+        <li>Custom UI or voice interface</li>
+        <li>Human handoff logic</li>
+        <li>Ongoing support included (30 days)</li>
+      </ul>
+      <a class="card-btn" href="../contact/index.html">Get a Quote</a>
+    </div>
+  </div>
+</div>
+
+<!-- AI Workflows & Agents -->
+<div class="section">
+  <div class="section-title">⚡ AI Workflows & Automation</div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-name">Simple Automation</div>
+      <div class="card-price" data-monthly="$599" data-retainer="$99/mo">$599</div>
+      <div class="card-desc">Automate one repetitive task — email sorting, data entry, report generation, lead routing.</div>
+      <ul class="card-features">
+        <li>1 workflow / automation</li>
+        <li>Connects 2–3 tools (e.g. Gmail, Sheets, Slack)</li>
+        <li>Testing & documentation</li>
+        <li>5-day delivery</li>
+      </ul>
+      <a class="card-btn" href="../contact/index.html">Get Started</a>
+    </div>
+    <div class="card featured">
+      <div class="card-name">Business Workflow Suite</div>
+      <div class="card-price" data-monthly="$2,499" data-retainer="$429/mo">$2,499</div>
+      <div class="card-desc">End-to-end automation of a core business process — sales pipeline, onboarding, support triage, and more.</div>
+      <ul class="card-features">
+        <li>Up to 5 connected workflows</li>
+        <li>Multi-tool integrations (CRM, email, calendar)</li>
+        <li>AI decision logic included</li>
+        <li>Error handling & alerts</li>
+        <li>Training session included</li>
+      </ul>
+      <a class="card-btn" href="../contact/index.html">Get Started</a>
+    </div>
+    <div class="card">
+      <div class="card-name">AI App / MVP</div>
+      <div class="card-price" data-monthly="$4,999+" data-retainer="$799/mo">$4,999+</div>
+      <div class="card-desc">A working AI-powered product — internal tool, SaaS MVP, or customer-facing app — built and deployed.</div>
+      <ul class="card-features">
+        <li>Full product scoping & design</li>
+        <li>Frontend + backend development</li>
+        <li>AI model integration</li>
+        <li>Deployment & hosting setup</li>
+        <li>30-day post-launch support</li>
+      </ul>
+      <a class="card-btn" href="../contact/index.html">Get a Quote</a>
+    </div>
+  </div>
+</div>
+
+<!-- Web & Marketing -->
+<div class="section">
+  <div class="section-title">🌐 Website Development</div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-name">Landing Page</div>
+      <div class="card-price" data-monthly="$699" data-retainer="$129/mo">$699</div>
+      <div class="card-desc">A high-converting single page for your product, service, or campaign. Fast, mobile-first, SEO-ready.</div>
+      <ul class="card-features">
+        <li>1-page responsive design</li>
+        <li>Contact form + CTA</li>
+        <li>Basic SEO setup</li>
+        <li>7-day delivery</li>
+      </ul>
+      <a class="card-btn" href="../contact/index.html">Get Started</a>
+    </div>
+    <div class="card featured">
+      <div class="card-name">Business Website</div>
+      <div class="card-price" data-monthly="$2,199" data-retainer="$379/mo">$2,199</div>
+      <div class="card-desc">A complete professional website — up to 6 pages, custom design, CMS, and everything you need to look credible online.</div>
+      <ul class="card-features">
+        <li>Up to 6 pages</li>
+        <li>Custom design (your brand)</li>
+        <li>CMS (easy content editing)</li>
+        <li>SEO foundations</li>
+        <li>Mobile & speed optimized</li>
+        <li>14-day delivery</li>
+      </ul>
+      <a class="card-btn" href="../contact/index.html">Get Started</a>
+    </div>
+    <div class="card">
+      <div class="card-name">E-Commerce / Custom</div>
+      <div class="card-price" data-monthly="$3,999+" data-retainer="$649/mo">$3,999+</div>
+      <div class="card-desc">Full e-commerce store or custom web application with advanced features, integrations, and scalability.</div>
+      <ul class="card-features">
+        <li>Product catalog & checkout</li>
+        <li>Payment gateway integration</li>
+        <li>Custom functionality</li>
+        <li>Performance & security hardening</li>
+      </ul>
+      <a class="card-btn" href="../contact/index.html">Get a Quote</a>
+    </div>
+  </div>
+</div>
+
+<!-- SEO & Marketing -->
+<div class="section">
+  <div class="section-title">📈 SEO & Digital Marketing</div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-name">SEO Starter</div>
+      <div class="card-price" data-monthly="$499" data-retainer="$299/mo">$499</div>
+      <div class="card-desc">Get your site found. Keyword research, on-page fixes, and a clear roadmap to rank higher.</div>
+      <ul class="card-features">
+        <li>Keyword research (20 terms)</li>
+        <li>On-page SEO audit & fixes</li>
+        <li>Google Search Console setup</li>
+        <li>Monthly report</li>
+      </ul>
+      <a class="card-btn" href="../contact/index.html">Get Started</a>
+    </div>
+    <div class="card featured">
+      <div class="card-name">Growth Marketing</div>
+      <div class="card-price" data-monthly="$1,499" data-retainer="$899/mo">$1,499</div>
+      <div class="card-desc">Full-funnel digital marketing — SEO, content, social, and paid ads working together to bring you leads.</div>
+      <ul class="card-features">
+        <li>SEO + content strategy</li>
+        <li>Social media management (2 platforms)</li>
+        <li>Google / Meta ad setup</li>
+        <li>Monthly analytics report</li>
+        <li>Bi-weekly strategy call</li>
+      </ul>
+      <a class="card-btn" href="../contact/index.html">Get Started</a>
+    </div>
+    <div class="card">
+      <div class="card-name">App Development</div>
+      <div class="card-price" data-monthly="$4,999+" data-retainer="$799/mo">$4,999+</div>
+      <div class="card-desc">Mobile or web app built from concept to launch — iOS, Android, or cross-platform with AI features baked in.</div>
+      <ul class="card-features">
+        <li>UI/UX design included</li>
+        <li>iOS + Android (React Native)</li>
+        <li>Backend API development</li>
+        <li>App Store submission</li>
+        <li>60-day support</li>
+      </ul>
+      <a class="card-btn" href="../contact/index.html">Get a Quote</a>
+    </div>
+  </div>
+</div>
+
+<!-- Pricing note -->
+<div class="note">
+  <div class="note-inner">
+    <strong>💡 A note on pricing:</strong> These are starting prices for a new client relationship. Every project is different — complexity, integrations, and timeline all affect the final number. <strong>Not sure what you need?</strong> Book a free 30-minute discovery call and we'll scope it together with no obligation. Retainer pricing includes ongoing maintenance, updates, and priority support.
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <h2>Common Questions</h2>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Do you offer payment plans?</div>
+    <div class="faq-a">Yes. For projects over $1,000 we typically split into 50% upfront and 50% on delivery. For larger projects we can arrange milestone-based payments.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">How long does a project take?</div>
+    <div class="faq-a">Simple automations and landing pages: 5–7 days. AI chatbots and business websites: 10–14 days. Full AI apps and complex workflows: 3–6 weeks depending on scope.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">What if I need something not listed here?</div>
+    <div class="faq-a">Just reach out. These packages cover the most common needs but we build custom solutions regularly. If you can describe it, we can likely build it.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">What does the monthly retainer include?</div>
+    <div class="faq-a">Retainers cover ongoing maintenance, updates, monitoring, and priority support. You also get a 15% discount vs. one-time pricing, and we treat retainer clients as long-term partners with faster turnaround times.</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">Do I own everything you build?</div>
+    <div class="faq-a">Absolutely. Once the project is paid in full, all code, designs, and assets are yours. No licensing fees, no lock-in.</div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-bar">
+  <div class="cta-inner">
+    <h2>Not Sure Where to Start?</h2>
+    <p>Book a free 30-minute call. We'll figure out exactly what you need — and what you don't.</p>
+    <a class="btn" href="../contact/index.html">Book a Free Call →</a>
+  </div>
+</div>
+
+<footer>
+  © 2024 <a href="../index.html">Nietzschean AI</a>. All rights reserved.
+</footer>
+
+<script>
+  let isRetainer = false;
+
+  function toggleBilling() {
+    isRetainer = !isRetainer;
+    const toggle = document.getElementById('billingToggle');
+    const lblM = document.getElementById('lbl-monthly');
+    const lblY = document.getElementById('lbl-yearly');
+    toggle.classList.toggle('yearly', isRetainer);
+    lblM.classList.toggle('active', !isRetainer);
+    lblY.classList.toggle('active', isRetainer);
+
+    document.querySelectorAll('.card-price').forEach(el => {
+      el.textContent = isRetainer ? el.dataset.retainer : el.dataset.monthly;
+    });
+  }
+
+  function toggleFaq(el) {
+    el.parentElement.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>

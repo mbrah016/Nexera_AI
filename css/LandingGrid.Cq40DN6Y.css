@@ -1,0 +1,55 @@
+/* Basic styles for the background gradient */
+.background-gradient[data-v-3bcef302] {
+    position: relative;
+    background-image: radial-gradient(
+      circle at var(--x) var(--y),
+      rgba(255, 255, 0, 0.8) 20%,
+      rgba(255, 255, 0, 0.2) 40%,
+      transparent 80%
+    );
+    transition: background-image 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  }
+  
+  /* Hover effect for the box itself */
+  .background-gradient[data-v-3bcef302].active {
+    box-shadow: 0 0 10px rgba(255, 255, 0, 0.8);
+  }
+  
+  .dark .background-gradient[data-v-3bcef302].active {
+    box-shadow: 0 0 10px rgba(244, 201, 90, 0.7);
+  }
+  
+  /* Adjacent boxes glow only on the edges when mouse is in the gap */
+  .background-gradient[data-v-3bcef302].active-adjacent {
+    box-shadow: 0 0 5px rgba(255, 255, 0, 0.5);
+  }
+  
+  .dark .background-gradient[data-v-3bcef302].active-adjacent {
+    box-shadow: 0 0 5px rgba(244, 201, 90, 0.5);
+  }
+
+  /* CSS to position the top-right robot GIF */
+.robot-gif-top {
+  position: absolute;
+  top: 170px; /* Adjust distance from the top */
+  right: 300px; /* Adjust distance from the right */
+  z-index: 1000; /* Ensures it's on top of other content */
+}
+
+.robot-gif-top .robot-gif {
+  width: 350px; /* Set desired width for the top-right GIF */
+  height: auto; /* Maintain aspect ratio */
+}
+
+/* CSS to position the bottom-left world GIF */
+.robot-gif-bottom {
+  position: absolute;
+  top: 2300px; /* Adjust distance from the bottom */
+  left: 10px; /* Adjust distance from the left */
+  z-index: 1000; /* Ensures it's on top of other content */
+}
+
+.robot-gif-bottom .robot-gif {
+  width: 800px; /* Set desired width for the bottom-left GIF */
+  height: auto; /* Maintain aspect ratio */
+}

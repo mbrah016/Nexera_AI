@@ -31,25 +31,33 @@
   /* CSS to position the top-right robot GIF */
 .robot-gif-top {
   position: absolute;
-  top: 170px; /* Adjust distance from the top */
-  right: 300px; /* Adjust distance from the right */
-  z-index: 1000; /* Ensures it's on top of other content */
+  top: 170px;
+  right: 300px;
+  z-index: 10; /* below header z-50 so it scrolls under the nav */
 }
 
 .robot-gif-top .robot-gif {
-  width: 350px; /* Set desired width for the top-right GIF */
-  height: auto; /* Maintain aspect ratio */
+  width: 350px;
+  height: auto;
 }
 
 /* CSS to position the bottom-left world GIF */
 .robot-gif-bottom {
   position: absolute;
-  top: 2300px; /* Adjust distance from the bottom */
-  left: 10px; /* Adjust distance from the left */
-  z-index: 1000; /* Ensures it's on top of other content */
+  top: 2300px;
+  left: 10px;
+  z-index: 10; /* below header z-50 so it scrolls under the nav */
 }
 
 .robot-gif-bottom .robot-gif {
-  width: 800px; /* Set desired width for the bottom-left GIF */
-  height: auto; /* Maintain aspect ratio */
+  width: 800px;
+  height: auto;
+}
+
+/* ---- Mobile: hide absolutely-positioned GIFs & fix layout ---- */
+@media (max-width: 767px) {
+  .robot-gif-top,
+  .robot-gif-bottom {
+    display: none;
+  }
 }

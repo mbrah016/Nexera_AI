@@ -123,3 +123,54 @@ a[class*="ring-gray"]:hover, button[class*="ring-gray"]:hover {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ======================================================
+   MOBILE RESPONSIVENESS  (max-width: 767px)
+   ====================================================== */
+@media (max-width: 767px) {
+
+  /* --- Typography scale-down --- */
+  .text-primary-gradient,
+  h1, .text-5xl { font-size: 2rem !important; line-height: 1.2 !important; padding: 0.25rem !important; }
+  h2, .text-3xl { font-size: 1.5rem !important; }
+  h3, .text-2xl { font-size: 1.25rem !important; }
+  p, .text-lg, .text-base { font-size: 0.95rem !important; }
+
+  /* --- Prevent horizontal overflow --- */
+  body, #__nuxt { overflow-x: hidden; }
+
+  /* --- Hero section: stack vertically, full width --- */
+  .lg\:grid-cols-2,
+  .md\:grid-cols-2,
+  .sm\:grid-cols-2 { grid-template-columns: 1fr !important; }
+
+  /* --- Images: never exceed screen width --- */
+  img, gif, video { max-width: 100% !important; height: auto !important; }
+
+  /* --- Blottie/Lottie animation container --- */
+  .blottie-container[data-v-0dba6a4b] { height: 220px !important; }
+
+  /* --- Padding/margin resets for mobile --- */
+  .py-24, .md\:py-40 { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+  .px-6, .sm\:px-6   { padding-left: 1rem !important; padding-right: 1rem !important; }
+  .gap-16 { gap: 2rem !important; }
+  .my-20, .md\:my-20 { margin-top: 2rem !important; margin-bottom: 2rem !important; }
+
+  /* --- Service cards: single column --- */
+  .lg\:grid-cols-3,
+  .xl\:grid-cols-4,
+  .xl\:grid-cols-3 { grid-template-columns: 1fr !important; }
+
+  /* --- Pricing cards: single column --- */
+  .lg\:grid-cols-2 { grid-template-columns: 1fr !important; }
+
+  /* --- Buttons: full width on mobile --- */
+  .flex.gap-x-6,
+  .flex.gap-x-4 { flex-direction: column !important; gap: 0.75rem !important; align-items: stretch !important; }
+
+  /* --- Nav: ensure hamburger menu is usable --- */
+  header { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+
+  /* --- Footer links: stack vertically --- */
+  footer .flex { flex-wrap: wrap !important; gap: 0.5rem !important; }
+}

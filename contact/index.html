@@ -410,28 +410,28 @@
     <h2>Send Us a Message</h2>
     <p>Ready to Transform Your Business with AI? Fill out the form and we'll get back to you within 24 hours.</p>
 
-    <form id="contactForm" onsubmit="handleSubmit(event)">
+    <form id="contactForm" action="https://formspree.io/f/mzdyaaog" method="POST" onsubmit="handleSubmit(event)">
       <div class="form-row">
         <div class="form-group">
           <label for="fname">First Name</label>
-          <input type="text" id="fname" placeholder="John" required>
+          <input type="text" id="fname" name="first_name" placeholder="John" required>
         </div>
         <div class="form-group">
           <label for="lname">Last Name</label>
-          <input type="text" id="lname" placeholder="Doe" required>
+          <input type="text" id="lname" name="last_name" placeholder="Doe" required>
         </div>
       </div>
       <div class="form-group">
         <label for="email">Email Address</label>
-        <input type="email" id="email" placeholder="john@company.com" required>
+        <input type="email" id="email" name="email" placeholder="john@company.com" required>
       </div>
       <div class="form-group">
         <label for="phone">Phone Number</label>
-        <input type="tel" id="phone" placeholder="+1 (555) 000-0000">
+        <input type="tel" id="phone" name="phone" placeholder="+1 (555) 000-0000">
       </div>
       <div class="form-group">
         <label for="service">What Are You Interested In?</label>
-        <select id="service">
+        <select id="service" name="service">
           <option value="">Select a service...</option>
           <option>AI Chatbots</option>
           <option>AI Agents</option>
@@ -445,7 +445,7 @@
       </div>
       <div class="form-group">
         <label for="message">Tell Us About Your Project</label>
-        <textarea id="message" placeholder="Describe your business challenge or what you'd like to build..." required></textarea>
+        <textarea id="message" name="message" placeholder="Describe your business challenge or what you'd like to build..." required></textarea>
       </div>
       <button type="submit" class="submit-btn">Send Message →</button>
       <div class="success-msg" id="successMsg">
@@ -463,11 +463,18 @@
 <script>
 function handleSubmit(e) {
   e.preventDefault();
-  document.getElementById('successMsg').style.display = 'block';
-  document.getElementById('contactForm').reset();
-  setTimeout(() => {
-    document.getElementById('successMsg').style.display = 'none';
-  }, 5000);
+  const form = document.getElementById('contactForm');
+  fetch('https://formspree.io/f/mzdyaaog', {
+    method: 'POST',
+    body: new FormData(form),
+    headers: { 'Accept': 'application/json' }
+  }).then(r => {
+    if (r.ok) {
+      document.getElementById('successMsg').style.display = 'block';
+      form.reset();
+      setTimeout(() => { document.getElementById('successMsg').style.display = 'none'; }, 5000);
+    }
+  });
 }
 </script>
 

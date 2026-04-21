@@ -33,7 +33,8 @@
   position: absolute;
   top: 170px;
   right: 300px;
-  z-index: 10; /* below header z-50 so it scrolls under the nav */
+  z-index: 10;
+  pointer-events: none;
 }
 
 .robot-gif-top .robot-gif {
@@ -46,7 +47,8 @@
   position: absolute;
   top: 2300px;
   left: 10px;
-  z-index: 10; /* below header z-50 so it scrolls under the nav */
+  z-index: 10;
+  pointer-events: none;
 }
 
 .robot-gif-bottom .robot-gif {
@@ -54,7 +56,7 @@
   height: auto;
 }
 
-/* ---- Mobile: hide absolutely-positioned GIFs & fix layout ---- */
+/* ---- Mobile: hide GIFs ---- */
 @media (max-width: 767px) {
   .robot-gif-top,
   .robot-gif-bottom {

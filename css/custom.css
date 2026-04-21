@@ -125,52 +125,117 @@ a[class*="ring-gray"]:hover, button[class*="ring-gray"]:hover {
 }
 
 /* ======================================================
-   MOBILE RESPONSIVENESS  (max-width: 767px)
+   MOBILE RESPONSIVENESS
    ====================================================== */
+
+/* Global safe defaults */
+*, *::before, *::after { box-sizing: border-box; }
+body { overflow-x: hidden; max-width: 100vw; }
+img, video, gif, svg, iframe { max-width: 100%; height: auto; display: block; }
+
+/* ── Tablet (max 1024px) ── */
+@media (max-width: 1024px) {
+  .lg\:grid-cols-2,
+  .lg\:grid-cols-3,
+  .lg\:grid-cols-12 { grid-template-columns: 1fr 1fr !important; }
+  .xl\:grid-cols-3,
+  .xl\:grid-cols-4 { grid-template-columns: 1fr 1fr !important; }
+}
+
+/* ── Mobile (max 767px) ── */
 @media (max-width: 767px) {
 
-  /* --- Typography scale-down --- */
-  .text-primary-gradient,
-  h1, .text-5xl { font-size: 2rem !important; line-height: 1.2 !important; padding: 0.25rem !important; }
-  h2, .text-3xl { font-size: 1.5rem !important; }
-  h3, .text-2xl { font-size: 1.25rem !important; }
-  p, .text-lg, .text-base { font-size: 0.95rem !important; }
+  /* --- Overflow lock --- */
+  body, #__nuxt { overflow-x: hidden !important; }
 
-  /* --- Prevent horizontal overflow --- */
-  body, #__nuxt { overflow-x: hidden; }
+  /* --- Typography --- */
+  h1, .text-5xl, .text-7xl, .text-primary-gradient {
+    font-size: clamp(1.6rem, 6vw, 2.25rem) !important;
+    line-height: 1.2 !important;
+    padding: 0.25rem 0 !important;
+  }
+  h2, .text-3xl, .text-4xl { font-size: clamp(1.25rem, 5vw, 1.75rem) !important; line-height: 1.3 !important; }
+  h3, .text-2xl, .text-xl  { font-size: clamp(1rem, 4vw, 1.25rem) !important; }
+  p, .text-lg, .text-base, .text-sm { font-size: 0.9375rem !important; line-height: 1.65 !important; }
 
-  /* --- Hero section: stack vertically, full width --- */
-  .lg\:grid-cols-2,
-  .md\:grid-cols-2,
-  .sm\:grid-cols-2 { grid-template-columns: 1fr !important; }
+  /* --- All grids → single column --- */
+  .lg\:grid-cols-2,  .md\:grid-cols-2,  .sm\:grid-cols-2,
+  .lg\:grid-cols-3,  .lg\:grid-cols-12,
+  .xl\:grid-cols-3,  .xl\:grid-cols-4,
+  .two-col, .principles, .main { grid-template-columns: 1fr !important; }
 
-  /* --- Images: never exceed screen width --- */
-  img, gif, video { max-width: 100% !important; height: auto !important; }
+  /* --- Flex rows → stack --- */
+  .md\:flex-row, .lg\:flex-row { flex-direction: column !important; }
 
-  /* --- Blottie/Lottie animation container --- */
-  .blottie-container[data-v-0dba6a4b] { height: 220px !important; }
+  /* --- Images auto-scale --- */
+  img { max-width: 100% !important; height: auto !important; width: auto !important; }
 
-  /* --- Padding/margin resets for mobile --- */
-  .py-24, .md\:py-40 { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
-  .px-6, .sm\:px-6   { padding-left: 1rem !important; padding-right: 1rem !important; }
-  .gap-16 { gap: 2rem !important; }
-  .my-20, .md\:my-20 { margin-top: 2rem !important; margin-bottom: 2rem !important; }
+  /* --- Header: compact, no overflow --- */
+  header {
+    padding-left: 0.75rem !important;
+    padding-right: 0.75rem !important;
+    min-height: 4rem;
+    flex-wrap: wrap;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 1001 !important;
+  }
+  /* Hide desktop nav on mobile (hamburger handles it) */
+  header nav, header ul { display: none !important; }
+  /* Show logo only */
+  header a.logo img, header img[src*="Nexera"] {
+    height: 2.5rem !important;
+    width: auto !important;
+  }
 
-  /* --- Service cards: single column --- */
-  .lg\:grid-cols-3,
-  .xl\:grid-cols-4,
-  .xl\:grid-cols-3 { grid-template-columns: 1fr !important; }
+  /* --- Spacing resets --- */
+  .py-24, .py-32, .md\:py-40, .sm\:py-32 {
+    padding-top: 2rem !important;
+    padding-bottom: 2rem !important;
+  }
+  .px-6, .sm\:px-6, .lg\:px-8 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+  .gap-16, .gap-8 { gap: 1.5rem !important; }
+  .my-20, .md\:my-20 { margin-top: 1.5rem !important; margin-bottom: 1.5rem !important; }
 
-  /* --- Pricing cards: single column --- */
-  .lg\:grid-cols-2 { grid-template-columns: 1fr !important; }
+  /* --- Cards: full width, no overflow --- */
+  .card, .principle, .form-panel, .info-panel,
+  .background-gradient, [class*="rounded-xl"] {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: hidden !important;
+  }
 
-  /* --- Buttons: full width on mobile --- */
-  .flex.gap-x-6,
-  .flex.gap-x-4 { flex-direction: column !important; gap: 0.75rem !important; align-items: stretch !important; }
+  /* --- Contact page layout --- */
+  .main { display: flex !important; flex-direction: column !important; padding: 1.5rem 1rem !important; }
+  .form-panel { padding: 1.5rem !important; }
+  .form-row { grid-template-columns: 1fr !important; }
 
-  /* --- Nav: ensure hamburger menu is usable --- */
-  header { padding-left: 0.75rem !important; padding-right: 0.75rem !important; }
+  /* --- About page --- */
+  .two-col { padding: 0 1rem 2rem !important; }
+  .hero { padding: 3rem 1rem 1.5rem !important; }
+  .section { padding: 0 1rem 3rem !important; }
+  .cta-bar { padding: 0 1rem 3rem !important; }
+  .cta-inner { padding: 2rem 1rem !important; }
 
-  /* --- Footer links: stack vertically --- */
+  /* --- Buttons --- */
+  .btn { width: 100% !important; justify-content: center !important; }
+  .flex.gap-x-6, .flex.gap-x-4 {
+    flex-direction: column !important;
+    gap: 0.75rem !important;
+    align-items: stretch !important;
+  }
+
+  /* --- Blottie animation --- */
+  .blottie-container[data-v-0dba6a4b] { height: 200px !important; }
+
+  /* --- Footer --- */
+  footer { padding: 1.25rem 1rem !important; }
   footer .flex { flex-wrap: wrap !important; gap: 0.5rem !important; }
+
+  /* --- Prevent text overflow --- */
+  * { word-break: break-word; overflow-wrap: break-word; }
+  .truncate { white-space: normal !important; overflow: visible !important; text-overflow: unset !important; }
 }

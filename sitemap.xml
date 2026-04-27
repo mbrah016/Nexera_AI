@@ -2,37 +2,44 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mbrah016.github.io/Nexera_AI/</loc>
-    <priority>1.0</priority>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
   </url>
   <url>
     <loc>https://mbrah016.github.io/Nexera_AI/about/</loc>
-    <priority>0.8</priority>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mbrah016.github.io/Nexera_AI/contact/</loc>
-    <priority>0.8</priority>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mbrah016.github.io/Nexera_AI/pricing/</loc>
-    <priority>0.8</priority>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://mbrah016.github.io/Nexera_AI/privacy-policy/</loc>
-    <priority>0.4</priority>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://mbrah016.github.io/Nexera_AI/refund-policy/</loc>
-    <priority>0.4</priority>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
   <url>
     <loc>https://mbrah016.github.io/Nexera_AI/terms-of-services/</loc>
-    <priority>0.4</priority>
+    <lastmod>2026-04-24</lastmod>
     <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
   </url>
 </urlset>
